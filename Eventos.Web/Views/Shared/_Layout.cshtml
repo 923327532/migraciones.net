@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>@ViewData["Title"] · Eventos</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand navbar-dark bg-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Eventos" asp-action="Index">EventosDB</a>
+                <div class="navbar-nav">
+                    <a class="nav-link" asp-controller="Eventos" asp-action="Index">Eventos</a>
+                    <a class="nav-link" asp-controller="Asistentes" asp-action="Index">Asistentes</a>
+                    <a class="nav-link" asp-controller="Inscripciones" asp-action="Index">Inscripciones</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container pb-5">
+        @if (TempData["Exito"] is string mensaje)
+        {
+            <div class="alert alert-success" role="status">
+                @mensaje
+            </div>
+        }
+        @RenderBody()
+    </main>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

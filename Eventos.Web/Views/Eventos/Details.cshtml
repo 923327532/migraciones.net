@@ -1,0 +1,11 @@
+@model Eventos.Web.ViewModels.EventoResumen
+
+@{
+    ViewData["Title"] = "Detalle del evento";
+}
+
+<h1>Detalle del evento</h1>
+<partial name="_Detalle" model="Model" />
+<a asp-action="Edit" asp-route-id="@Model.Evento.Id">Editar</a>
+·
+<a asp-action="Index">Volver</a>

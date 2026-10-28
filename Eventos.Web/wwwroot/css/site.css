@@ -1,0 +1,47 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    background: #f7f9fc;
+    color: #202c40;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    font-weight: 650;
+}
+
+.table {
+    margin-top: 1.5rem;
+    background: white;
+}
+
+.table th {
+    background: #eaf0f7;
+}
+
+.table td,
+.table th {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.formulario {
+    max-width: 640px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.input-validation-error {
+    border-color: #dc3545;
+}
+
+label {
+    margin-bottom: .35rem;
+}
+
+a {
+    text-underline-offset: 3px;
+}

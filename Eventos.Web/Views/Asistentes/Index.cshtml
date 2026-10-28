@@ -1,0 +1,39 @@
+@model IReadOnlyList<Asistente>
+
+@{
+    ViewData["Title"] = "Asistentes";
+}
+
+<div class="d-flex justify-content-between">
+    <h1>Asistentes</h1>
+    <a class="btn btn-primary" asp-action="Create">Registrar asistente</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombres</th>
+                <th>DNI</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var asistente in Model)
+            {
+                <tr>
+                    <td>@asistente.Nombres</td>
+                    <td>@asistente.Dni</td>
+                    <td>@asistente.Correo</td>
+                    <td>@(asistente.Telefono ?? "—")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@if (Model.Count == 0)
+{
+    <p>No hay asistentes registrados.</p>
+}

@@ -1,0 +1,20 @@
+@model Eventos.Web.ViewModels.EventoResumen
+
+<dl class="row">
+    <dt class="col-sm-3">Título</dt>
+    <dd class="col-sm-9">@Model.Evento.Titulo</dd>
+    <dt class="col-sm-3">Categoría</dt>
+    <dd class="col-sm-9">@Model.Evento.Categoria.Nombre</dd>
+    <dt class="col-sm-3">Fecha</dt>
+    <dd class="col-sm-9">@Model.Evento.Fecha.ToString("dd/MM/yyyy HH:mm")</dd>
+    <dt class="col-sm-3">Lugar</dt>
+    <dd class="col-sm-9">@Model.Evento.Lugar</dd>
+    <dt class="col-sm-3">Modalidad</dt>
+    <dd class="col-sm-9">@Model.Evento.Modalidad</dd>
+    <dt class="col-sm-3">Precio</dt>
+    <dd class="col-sm-9">S/ @Model.Evento.Precio.ToString("0.00")</dd>
+    <dt class="col-sm-3">Aforo</dt>
+    <dd class="col-sm-9">@Model.Evento.Aforo</dd>
+    <dt class="col-sm-3">Confirmados / disponibles</dt>
+    <dd class="col-sm-9">@Model.Confirmados / @Model.Disponibles</dd>
+</dl>

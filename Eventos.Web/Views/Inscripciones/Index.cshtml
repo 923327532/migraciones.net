@@ -1,0 +1,48 @@
+@model IReadOnlyList<Inscripcion>
+
+@{
+    ViewData["Title"] = "Inscripciones";
+}
+
+<div class="d-flex justify-content-between">
+    <h1>Inscripciones</h1>
+    <a class="btn btn-primary" asp-action="Create">Nueva inscripción</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Evento</th>
+                <th>Asistente</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var inscripcion in Model)
+            {
+                <tr>
+                    <td>@inscripcion.Evento.Titulo</td>
+                    <td>@inscripcion.Asistente.Nombres</td>
+                    <td>@inscripcion.FechaInscripcion.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@inscripcion.Estado</td>
+                    <td>
+                        @if (inscripcion.Estado == "Confirmada")
+                        {
+                            <form asp-action="Cancelar" asp-route-id="@inscripcion.Id" method="post">
+                                <button class="btn btn-outline-danger btn-sm">Cancelar</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@if (Model.Count == 0)
+{
+    <p>No hay inscripciones registradas.</p>
+}

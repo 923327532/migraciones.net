@@ -1,0 +1,63 @@
+@model IReadOnlyList<Eventos.Web.ViewModels.EventoResumen>
+
+@{
+    ViewData["Title"] = "Eventos";
+}
+
+<div class="d-flex justify-content-between">
+    <h1>Eventos</h1>
+    <a class="btn btn-primary" asp-action="Create">Crear evento</a>
+</div>
+<form method="get" class="my-3">
+    <label for="categoriaId">Categoría</label>
+    <select id="categoriaId" name="categoriaId" asp-items="ViewBag.Categorias">
+        <option value="">Todas</option>
+    </select>
+    <button class="btn btn-secondary">Filtrar</button>
+</form>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Categoría</th>
+                <th>Fecha</th>
+                <th>Lugar</th>
+                <th>Modalidad</th>
+                <th>Precio (S/)</th>
+                <th>Aforo</th>
+                <th>Confirmados</th>
+                <th>Cupos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var resumenEvento in Model)
+            {
+                <tr>
+                    <td>@resumenEvento.Evento.Titulo</td>
+                    <td>@resumenEvento.Evento.Categoria.Nombre</td>
+                    <td>@resumenEvento.Evento.Fecha.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@resumenEvento.Evento.Lugar</td>
+                    <td>@resumenEvento.Evento.Modalidad</td>
+                    <td>@resumenEvento.Evento.Precio.ToString("0.00")</td>
+                    <td>@resumenEvento.Evento.Aforo</td>
+                    <td>@resumenEvento.Confirmados</td>
+                    <td>@resumenEvento.Disponibles</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@resumenEvento.Evento.Id">Detalle</a>
+                        ·
+                        <a asp-action="Edit" asp-route-id="@resumenEvento.Evento.Id">Editar</a>
+                        ·
+                        <a asp-action="Delete" asp-route-id="@resumenEvento.Evento.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@if (Model.Count == 0)
+{
+    <p>No hay eventos para mostrar.</p>
+}

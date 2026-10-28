@@ -1,0 +1,14 @@
+root = true
+
+[*.{cs,cshtml,css}]
+charset = utf-8
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.cs]
+csharp_preserve_single_line_blocks = true
+csharp_preserve_single_line_statements = false
+csharp_new_line_before_open_brace = all
+csharp_prefer_braces = true:warning

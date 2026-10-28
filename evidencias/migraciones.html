@@ -1,0 +1,24 @@
+<!doctype html><html lang=es><meta charset=utf-8><title>Evidencia de migraciones</title><style>body{font:18px Segoe UI;padding:30px;background:#f7f9fc}pre{background:white;padding:20px;font:15px Consolas;overflow-wrap:anywhere;white-space:pre-wrap}</style><h1>EventosDB · Evidencia de migraciones</h1><p>Instancia: LAPTOP-E3GDIQ7D\SQLEXPRESS. Resultado real exportado con sqlcmd.</p><h2>Consulta ejecutada en SQL Server</h2><pre>SELECT MigrationId, ProductVersion FROM __EFMigrationsHistory ORDER BY MigrationId;</pre><pre>MigrationId                                                                                                                                            ProductVersion                  
+------------------------------------------------------------------------------------------------------------------------------------------------------ --------------------------------
+20261028231113_InitialCreate                                                                                                                           10.0.13                         
+20261028231301_AgregarModalidadEvento                                                                                                                  10.0.13                         
+20261028231328_AgregarTelefonoAsistente                                                                                                                10.0.13                         
+
+(3 rows affected)
+name                                                                                                                            
+--------------------------------------------------------------------------------------------------------------------------------
+__EFMigrationsHistory                                                                                                           
+Asistentes                                                                                                                      
+Categorias                                                                                                                      
+Eventos                                                                                                                         
+Inscripciones                                                                                                                   
+
+(5 rows affected)
+</pre><h2>Carpeta Migrations expandida</h2><pre>Migrations/
+  20261028231113_InitialCreate.cs
+  20261028231113_InitialCreate.Designer.cs
+  20261028231301_AgregarModalidadEvento.cs
+  20261028231301_AgregarModalidadEvento.Designer.cs
+  20261028231328_AgregarTelefonoAsistente.cs
+  20261028231328_AgregarTelefonoAsistente.Designer.cs
+  EventosContextModelSnapshot.cs</pre></html>
